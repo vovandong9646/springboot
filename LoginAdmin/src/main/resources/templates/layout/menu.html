@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div th:fragment="menu">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasAuthority('Admin')">
+                <a class="nav-link" th:href="@{/admin}">Admin</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasAuthority('Sales')" >
+                <a class="nav-link" th:href="@{/sales}">Sales</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasAuthority('Shipper')">
+                <a class="nav-link" th:href="@{/shipper}">Shipper</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
